@@ -1,0 +1,54 @@
+/*******************************************************************************
+ * Copyright (c) 2010 MATERNA Information & Communications and TU Dortmund, Dpt.
+ * of Computer Science, Chair 4, Distributed Systems All rights reserved. This
+ * program and the accompanying materials are made available under the terms of
+ * the Eclipse Public License v1.0 which accompanies this distribution, and is
+ * available at http://www.eclipse.org/legal/epl-v10.html
+ ******************************************************************************/
+
+JMEDS: Test Example
+
+Contained files:
+	+ StartExample.java
+		This file contains the main class of the example. The Device and
+		Services are managed and set up here.
+	+ TestClient.java
+		This file contains the client's code. It calls the operations and
+		subscribes for events.
+	+ TestService.java
+		This file contains the SimpleService's source-code. Here the operations
+		are set up and added to the service.
+		OneWay and TwoWay Operation are defined here as well.
+	+ EventingService.java
+		This file contains the EventingService's source-code. Here the
+		operations are set up and added to the service.
+		The simple Notification- and Attachment-Event are set up here.
+	+ PictureFrame.java
+		Contains the code to display the picture from the AttachmentEvent. Not
+		JMEDS specific, just lame AWT-code!
+	+ example.properties
+		Contains information about the device, services, bindings and event
+		sinks. Every property has an ID. When used as parameter for e.g. the
+		LocalService/DefaultDevice constructors this information will be used
+		and it is not required to use the respective setter methods.
+
+CAUTION: Linux users may have to add 127.0.0.1 to the multicast-group to receive
+multicast messages!
+
+
+How to start up the example:
+	There are two ways to start up the example:
+	1. For local testing (standard configuration):
+		Just run the main method in the StartExample class.
+	2. For remote testing in different JVMs:
+		Remove the "new TestClient();" line from the main method in the
+		StartExample class.
+		Next remove the double-slashes in front of the main method in the
+		TestClient class.
+		Now run the main method in the StartExample class first. After this run
+		the one in the TestClient class.
+	
+	WARNING: If you want to discover the example device from another location in
+			 your network you have to change the IP defined in the
+			 example.properties file from 127.0.0.1 to your actual local
+			 address.
